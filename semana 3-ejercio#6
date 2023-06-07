@@ -1,0 +1,62 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package ej6;
+
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author user
+ */
+public class EJ6 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+                int sumaNotas = 0;
+        int notaMayor = 0;
+        int notaMenor = 100;
+        int cantidadAprobados = 0;
+        int cantidadEstudiantes = 0;
+
+        String input = JOptionPane.showInputDialog("Ingresa la nota del estudiante " + (cantidadEstudiantes + 1) + ":");
+        int nota = Integer.parseInt(input);
+
+        while (nota >= 0) {
+            sumaNotas += nota;
+            cantidadEstudiantes++;
+
+            if (nota > notaMayor) {
+                notaMayor = nota;
+            }
+
+            if (nota < notaMenor) {
+                notaMenor = nota;
+            }
+
+            if (nota >= 70) {
+                cantidadAprobados++;
+            }
+
+            input = JOptionPane.showInputDialog("Ingresa la nota del estudiante " + (cantidadEstudiantes + 1) + ":");
+            nota = Integer.parseInt(input);
+        }
+
+        if (cantidadEstudiantes > 0) {
+            double promedio = (double) sumaNotas / cantidadEstudiantes;
+
+            String mensaje = "Nota promedio: " + promedio + "\n" +
+                    "Nota mayor: " + notaMayor + "\n" +
+                    "Nota menor: " + notaMenor + "\n" +
+                    "Cantidad de estudiantes aprobados: " + cantidadAprobados;
+
+            JOptionPane.showMessageDialog(null, mensaje);
+        } else {
+            JOptionPane.showMessageDialog(null, "No se ingresaron notas de estudiantes.");
+        }
+    }
+}
